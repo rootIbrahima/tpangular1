@@ -10,7 +10,7 @@ import { FaceSnap } from '../models/face-snap';
 })
 export class FaceSnapComponent implements OnInit {
  
-  @Input() faceSnap!:FaceSnap;
+  @Input() faceSnapUpdate!:FaceSnap;
   snapButtonText!:string;
   userHasSnapped= false;
 
@@ -28,12 +28,12 @@ export class FaceSnapComponent implements OnInit {
     }
    }
     unSnap() {
-      this.faceSnap.removeSnap()
+      this.faceSnapUpdate.removeSnap()
       this.snapButtonText='unliked';
       this.userHasSnapped = false;
     }
     snap() {
-      this.faceSnap.addSnap()
+      this.faceSnapUpdate.addSnap()
       this.snapButtonText ='liked';
       this.userHasSnapped = true;
     }

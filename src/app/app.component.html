@@ -1,1 +1,10 @@
-<app-face-snap [faceSnap]="faceSnap"></app-face-snap>
+<!--<app-face-snap [faceSnap]="faceSnap"></app-face-snap>
+<app-face-snap [faceSnap]="firstSnap"></app-face-snap>
+<app-face-snap [faceSnap]="thirdSnap"></app-face-snap>
+
+-->
+
+@for (item of myFaceSnap ; track item.title) {
+  <app-face-snap [faceSnapUpdate]="item"></app-face-snap>
+
+}
