@@ -1,10 +1,8 @@
 <div> 
-    <h1>{{title}}</h1>
-    <img [src]= imageUrl  alt= "chat"/>
-    <h1>{{description}}</h1>
-    <h1>{{createdAt}}</h1>
-    <h1>{{snaps}}</h1>
-    <p> <button></button>
-    {{snaps}}
-    </p>
+    <h2>{{faceSnap.title}}</h2>
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <p>published online date: {{faceSnap.createdAt}}</p>
+    <p>{{faceSnap.description}}</p>
+    <p> <button (click)="onSnap()">{{snapButtonText}}</button></p>
+    {{ faceSnap }}
 </div>
