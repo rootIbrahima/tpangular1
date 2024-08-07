@@ -8,6 +8,7 @@ import { Title } from '@angular/platform-browser';
   selector: 'app-root',
   standalone: true,
   // imports: [RouterOutlet],
+
   imports:[
     FaceSnapComponent
   ],
@@ -16,7 +17,6 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent  implements OnInit{
   myFaceSnap!:FaceSnap[];
-  loopFaceSnap!:FaceSnap
   ngOnInit(): void {
     this.myFaceSnap=[
       new FaceSnap(
@@ -25,7 +25,8 @@ export class AppComponent  implements OnInit{
     'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg',
     new Date(),
     0,
-      ),
+      )
+      ,
       new FaceSnap(
         "Mon deuxieme site",
       "Ceci est une plateforme de publication des videos",
@@ -42,6 +43,11 @@ export class AppComponent  implements OnInit{
       ),
 
     ];
+    this.myFaceSnap[0].setLocation("Dakar,Senegal");
+    this.myFaceSnap[1].setLocation("Paris,France");
+    this.myFaceSnap[2].setLocation("Washington,US");
+
+
   }  
       
   }

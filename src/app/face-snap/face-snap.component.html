@@ -1,10 +1,17 @@
-<div class="face-snap-card"> 
-    <h2>{{faceSnapUpdate.title}}</h2>
+<div class="face-snap-card "[ngClass]="{snapped:userHasSnapped}" > 
+    <h2>{{faceSnapUpdate.title |titlecase}}</h2>
     <img [src]="faceSnapUpdate.imageUrl" [alt]="faceSnapUpdate.title">
-    <p>published online date: {{faceSnapUpdate.createdAt}}</p>
-    <p>{{faceSnapUpdate.description}}</p>
+    <p>published online date: {{faceSnapUpdate.createdAt |date:'dd MMMM yyyy, HH:mm'}}</p>
+    <p>{{faceSnapUpdate.description |lowercase}}</p>
     <p> <button (click)="onSnap()">{{snapButtonText}}</button></p>
-    {{ faceSnapUpdate.snap }}
-
+    <span [ngStyle]="{color:'rgb(0,'+faceSnapUpdate.snap+',0)'}"> 
+        {{faceSnapUpdate.snap}}
+    </span>
+    @if (faceSnapUpdate) {
+        <p>Localisation :{{faceSnapUpdate.location}}</p>
+    }
+    @else {
+        <p>Localisation non specified</p>
+    }
   
 </div>
