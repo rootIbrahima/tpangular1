@@ -1,15 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
-import { DatePipe, LowerCasePipe, NgClass, NgStyle, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, NgClass, NgStyle, PercentPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-face-snap',
   standalone: true,
-  imports: [NgStyle,NgClass,DatePipe,TitleCasePipe,LowerCasePipe,UpperCasePipe],
+  imports: [NgStyle,NgClass,DatePipe,TitleCasePipe,LowerCasePipe,UpperCasePipe,DecimalPipe,CurrencyPipe,PercentPipe],
   templateUrl: './face-snap.component.html',
   styleUrl: './face-snap.component.scss'
 })
+
 export class FaceSnapComponent implements OnInit {
+
+  myPrice=336.15;
+  myLargeNumber=4667916.76;
+  myLargeNumberPercentage=0.337;
+
  
   @Input() faceSnapUpdate!:FaceSnap;
   snapButtonText!:string;
@@ -38,7 +44,8 @@ export class FaceSnapComponent implements OnInit {
       this.snapButtonText ='liked';
       this.userHasSnapped = true;
     }
-  }
+    
 
+  }
 
 

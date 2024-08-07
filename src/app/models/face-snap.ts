@@ -1,4 +1,7 @@
 export class FaceSnap{
+
+    myCurrency!:number
+    
    
     location?:string
 
@@ -13,5 +16,6 @@ export class FaceSnap{
     setLocation(location?:string):void{
         this.location=location;
     }
+
 
 }
