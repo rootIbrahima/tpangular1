@@ -14,8 +14,8 @@ import { HeaderComponent } from './header/header.component';
   imports:[
     HeaderComponent,
     //FaceSnapComponent,
-    FaceSnapListComponent
-    
+    //FaceSnapListComponent
+    RouterOutlet,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FaceSnap } from '../models/face-snap';
 import { CurrencyPipe, DatePipe, DecimalPipe, LowerCasePipe, NgClass, NgStyle, PercentPipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { FaceSnapService } from '../services/face-snaps.service';
 
 @Component({
   selector: 'app-face-snap',
@@ -19,12 +20,15 @@ export class FaceSnapComponent implements OnInit {
  
   @Input() faceSnapUpdate!:FaceSnap;
   snapButtonText!:string;
-  userHasSnapped= false;
+  userHasSnapped!:boolean;
+
+  constructor(private faceSnapService:FaceSnapService){}
 
   ngOnInit(): void {
     
     //this.imageUrl = 'https://letsenhance.io/static/73136da51c245e80edc6ccfe44888a99/1015f/MainBefore.jpg';
     this.snapButtonText="liked";
+    this.userHasSnapped=false;
   }
   onSnap():void{
    if (this.userHasSnapped){
@@ -35,14 +39,18 @@ export class FaceSnapComponent implements OnInit {
     }
    }
     unSnap() {
-      this.faceSnapUpdate.removeSnap()
-      this.snapButtonText='unliked';
-      this.userHasSnapped = false;
+      //this.faceSnapUpdate.removeSnap()
+      this.faceSnapService.snapFaceSnapById(this.faceSnapUpdate.id,"unsnap");
+      this.snapButtonText  = "unliked" ;
+      this.userHasSnapped = false ;
+    
     }
     snap() {
-      this.faceSnapUpdate.addSnap()
-      this.snapButtonText ='liked';
-      this.userHasSnapped = true;
+      //this.faceSnapUpdate.addSnap()
+      this.faceSnapService.snapFaceSnapById(this.faceSnapUpdate.id,"snap");
+      this.snapButtonText  = "liked" ;
+      this.userHasSnapped = true   ; 
+    
     }
     
 

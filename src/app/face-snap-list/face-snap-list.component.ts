@@ -16,11 +16,7 @@ export class FaceSnapListComponent implements OnInit{
   ngOnInit(): void {
     this.myFaceSnap= this.faceSnapService.getFaceSnaps();
 
-    this.myFaceSnap[0].setLocation("Dakar,Senegal");
-    this.myFaceSnap[1].setLocation("Paris,France");
-    this.myFaceSnap[2].setLocation("Washington,US");
-
-
+  
   }  
       
 
